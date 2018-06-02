@@ -1,6 +1,7 @@
 package com.SingletonAssignment;
 
-public class Invoker {
+
+public class Invoker  {
 
 	public Command command;
 	
@@ -8,7 +9,7 @@ public class Invoker {
 		this.command = c;
 	}
 	
-	public void execute(){
+	public void execute() {
 		this.command.execute();
 	}
 }

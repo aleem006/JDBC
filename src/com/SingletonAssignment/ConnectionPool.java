@@ -5,12 +5,40 @@ import java.util.*;
 
 public class ConnectionPool {
 	
+	private static ConnectionPool connectionPool;
+	
 	private List<Connection>connections = new ArrayList<Connection>();
 	private final int Max_Connection = 8;
 	
 	private String URL;
 	private String USERID;
 	private String PASSWORD;
+	
+	public static ConnectionPool getInstance() throws SQLException{
+		if(connectionPool == null){
+			connectionPool = new ConnectionPool("jdbc:postgresql://localhost:5432/student", "student", "student");
+			System.out.println("Connection Available "+ connectionPool.getFreeConnectionCount());
+
+//			connectionPool.DBConnection();
+		}
+		return connectionPool;
+	}
+	
+
+//	public ConnectionPool DBConnection(){
+//        
+//		try {
+//			ConnectionPool connectionPool = new ConnectionPool("jdbc:postgresql://localhost:5432/student", "student", "student");
+//			System.out.println("Connection Available "+ connectionPool.getFreeConnectionCount());
+//            return connectionPool;
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return null;
+//        
+//        
+//    }
+
 	
 	public ConnectionPool(String Url, String UserId, String Password) throws SQLException{
 		this.URL = Url;

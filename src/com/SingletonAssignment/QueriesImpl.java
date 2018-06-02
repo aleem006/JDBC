@@ -13,13 +13,11 @@ public class QueriesImpl implements Queries{
 	public void selectQuery(String Query) {
 		Statement statement = null;
 		ResultSet resultSet = null;
-		String QueriesImpl;
-		QueriesImpl = "use test";
 		
 		try {
 			statement = connection.createStatement();
-			statement.execute(QueriesImpl);
-			resultSet = statement.executeQuery(QueriesImpl);
+			statement.execute(Query);
+			resultSet = statement.executeQuery(Query);
 			
 			ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 			int numberOfColumns = resultSetMetaData.getColumnCount();
@@ -57,7 +55,6 @@ public class QueriesImpl implements Queries{
 			Statement statement = connection.createStatement();
 			statement.executeUpdate(Query);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -67,7 +64,6 @@ public class QueriesImpl implements Queries{
 			Statement statement = connection.createStatement();
 			statement.executeUpdate(Query);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

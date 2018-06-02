@@ -6,11 +6,12 @@ import java.sql.*;
 
 public class MainJDBC {
 	
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
     	
-    	JDBCSingleton jdbc= JDBCSingleton.getInstance();
+//    	JDBCSingleton jdbc= JDBCSingleton.getInstance();
+    	ConnectionPool connectionPool = ConnectionPool.getInstance();
     	
-    	ConnectionPool connectionPool = jdbc.DBConnection();
+//    	ConnectionPool connectionPool = jdbc.DBConnection();
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         
         QueriesImpl queriesImpl = new QueriesImpl(connectionPool.getConnection());
