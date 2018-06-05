@@ -24,7 +24,7 @@ public class ConnectionPool {
 		return connectionPool;
 	}
 	
-
+//
 //	public ConnectionPool DBConnection(){
 //        
 //		try {
